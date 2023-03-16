@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+
+<h1>Home</h1>
+
+<p><%= preview %></p>
+
+
+<% allPosts.forEach((item) => { %>
+<div>
+    <h3> <%= item.title %> </h3>
+    <% if(item.body.length>100){ %>
+        <%  let shortBody = item.body.slice(0,99)+ "..."; %>
+        <p> <%= shortBody %> <a href="/posts/<%= item.title %>" >Read More</a></p>
+        
+    <% } else { %>
+        <p> <%= item.body %> </p>
+    <%  } %>
+</div>
+<% }) %>
+
+
+<%- include("partials/footer") %>
